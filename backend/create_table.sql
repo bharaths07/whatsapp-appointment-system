@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS appointments (
+  id SERIAL PRIMARY KEY,
+  phone VARCHAR(20) NOT NULL,
+  patient_name VARCHAR(100) NOT NULL,
+  status VARCHAR(20) DEFAULT 'pending',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  token_number INTEGER
+);
+
+CREATE TABLE IF NOT EXISTS queue_status (
+  id INTEGER PRIMARY KEY CHECK (id = 1),
+  is_open BOOLEAN DEFAULT 0,
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
